@@ -1,2 +1,27 @@
 # iambored
 A command line tool to suggest things to do.
+
+## Setup
+
+1. Install iambored globally to use in any repository:
+
+   ```sh
+   npm install -g @redochsenbein/iambored
+   ```
+
+2. Get your API key from [OpenAI](https://platform.openai.com/account/api-keys). Make sure you add payment details, so API works.
+
+3. Set the key to configuration file at `~/.iambored`:
+
+   ```ini
+   OPENAI_API_KEY=<your_api_key>
+   ```
+
+## Usage
+
+You can call iambored directly to get one activity suggestion. 
+
+```sh
+$ iambored 
+```
+

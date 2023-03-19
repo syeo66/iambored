@@ -10,4 +10,5 @@ application.log
 logfile.log
 uncaughtExceptions.log
 .vscode
+yarn-error.log
 src/*.json

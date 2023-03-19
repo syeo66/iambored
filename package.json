@@ -1,5 +1,5 @@
 {
-  "name": "iambored",
+  "name": "@redochsenbein/iambored",
   "version": "0.1.0",
   "description": "GPT CLI to suggest things to do.",
   "keywords": [
