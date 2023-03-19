@@ -22,7 +22,7 @@ const iambored = async () => {
     {
       role: ChatCompletionRequestMessageRoleEnum.System,
       content:
-        'You are giving some advice on what to do today. Be helpful, clever, friendly and creative.',
+        'You are giving some advice on what to do today. Be helpful, clever, friendly and creative. Do not suggest multiple things and alternatives. Just one thing at a time.',
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.User,
