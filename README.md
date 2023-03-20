@@ -23,6 +23,7 @@ You can call iambored directly to get one activity suggestion.
 
 ```sh
 $ iambored 
+Write a script which uses GPT to suggest things to do.
 ```
 
 ## Acknowledgement
