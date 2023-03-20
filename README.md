@@ -25,3 +25,6 @@ You can call iambored directly to get one activity suggestion.
 $ iambored 
 ```
 
+## Acknowledgement
+
+* Uses the activity list of https://github.com/drewthoennes/Bored-API to create prompts.
