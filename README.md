@@ -23,5 +23,9 @@ You can call iambored directly to get one activity suggestion.
 
 ```sh
 $ iambored 
+Write a script which uses GPT to suggest things to do.
 ```
 
+## Acknowledgement
+
+* Uses the activity list of https://github.com/drewthoennes/Bored-API to create prompts.
