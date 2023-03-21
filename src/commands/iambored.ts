@@ -22,13 +22,13 @@ const iambored = async () => {
     {
       role: ChatCompletionRequestMessageRoleEnum.System,
       content:
-        'You are giving some advice on what to do today. Be helpful, clever, friendly and creative. Suggest somewhat unusual things. Do not suggest multiple things and alternatives. Just one thing at a time.',
+        'You are giving some advice on what to do today. Be helpful, clever, friendly and creative. Suggest unusual things. Do not suggest multiple things and alternatives. Just mention one thing at a time.',
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.User,
-      content: `Now is Wed Mar 15 2023 15:30:22 GMT, what should I do today? Maybe ${
+      content: `Now is Wed Mar 15 2023 15:30:22 GMT, what should I do today? Yesterday I did the following: ${
         activities[Math.trunc(Math.random() * activities.length)].activity
-      }?`,
+      }.`,
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.Assistant,
@@ -37,9 +37,9 @@ const iambored = async () => {
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.User,
-      content: `Now is Thu Mar 16 2023 12:15:00 GMT, what should I do today? Maybe ${
+      content: `Now is Thu Mar 16 2023 12:15:00 GMT, what should I do today? Yesterday I did the following: ${
         activities[Math.trunc(Math.random() * activities.length)].activity
-      }?`,
+      }.`,
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.Assistant,
@@ -48,9 +48,9 @@ const iambored = async () => {
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.User,
-      content: `Now is Fri Mar 17 2023 09:15:00 GMT, what should I do today? Maybe ${
+      content: `Now is Fri Mar 17 2023 09:15:00 GMT, what should I do today? Something similar to ${
         activities[Math.trunc(Math.random() * activities.length)].activity
-      }?`,
+      }.`,
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.Assistant,
@@ -59,9 +59,9 @@ const iambored = async () => {
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.User,
-      content: `Now is ${new Date().toString()}, what should I do today? Maybe ${
+      content: `Now is ${new Date().toString()}, what should I do today? Something like ${
         activities[Math.trunc(Math.random() * activities.length)].activity
-      }?`,
+      }.`,
     },
   ]
 
