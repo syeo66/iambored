@@ -8,7 +8,12 @@ import {
 
 import { getConfig, OPENAI_API_KEY } from '../helpers/config'
 
-const iambored = async () => {
+interface IAmBoredOptions {
+  hours?: number
+  minutes?: number
+}
+
+const iambored = async ({ minutes, hours }: IAmBoredOptions) => {
   const config = getConfig()
 
   const openAiApiConfiguration = new OpenAiApiConfiguration({
@@ -17,6 +22,11 @@ const iambored = async () => {
   const openAiApi = new OpenAIApi(openAiApiConfiguration)
 
   const activities = getActivities()
+
+  const m = !hours && !minutes ? Math.ceil(Math.random() * 120) : minutes
+  const mins = m ? `${m} Minutes` : ''
+  const hrs = hours ? `${hours} Hours` : ''
+  const time = `I have ${hrs} ${mins} to spare.`
 
   const messages: ChatCompletionRequestMessage[] = [
     {
@@ -59,7 +69,7 @@ const iambored = async () => {
     },
     {
       role: ChatCompletionRequestMessageRoleEnum.User,
-      content: `Now is ${new Date().toString()}, what should I do today? Something like ${
+      content: `Now is ${new Date().toString()} and ${time} What should I do today? Something like ${
         activities[Math.trunc(Math.random() * activities.length)].activity
       }.`,
     },
@@ -73,7 +83,7 @@ const iambored = async () => {
       max_tokens: 250,
     })
 
-    const { message } = data.choices[0]
+    const [{ message }] = data.choices
 
     console.log(message?.content)
   } catch (error: unknown) {
