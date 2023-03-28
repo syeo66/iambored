@@ -1,5 +1,5 @@
 # iambored
-A command line tool to suggest things to do.
+A command line tool using ChatGPT to suggest things to do when you're bored.
 
 ## Setup
 
