@@ -21,9 +21,18 @@ A command line tool to suggest things to do.
 
 You can call iambored directly to get one activity suggestion. 
 
-```sh
+```bash
 $ iambored 
 Write a script which uses GPT to suggest things to do.
+```
+
+Take a look at the `minutes` and `hours` flags:
+```bash
+Flags:
+  -h, --help                    Show help                                                                                                                     
+      --hours <number>          How many hours do I have to spare?                                                                                            
+      --minutes <number>        How many minutes do I have to spare?                                                                                          
+      --version                 Show version
 ```
 
 ## Acknowledgement
