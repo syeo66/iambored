@@ -26,7 +26,7 @@ $ iambored
 Write a script which uses GPT to suggest things to do.
 ```
 
-Take a look at the `minutes` and `hours` flags:
+Take a look at the optional `minutes` and `hours` flags:
 ```bash
 Flags:
   -h, --help                    Show help                                                                                                                     
