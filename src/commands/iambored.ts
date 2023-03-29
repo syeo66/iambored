@@ -23,7 +23,7 @@ const iambored = async ({ minutes, hours }: IAmBoredOptions) => {
 
   const activities = getActivities()
 
-  const m = !hours && !minutes ? Math.ceil(Math.random() * 120) : minutes
+  const m = !hours && !minutes ? Math.ceil(Math.random() * 12) * 10 : minutes
   const mins = m ? `${m} Minutes` : ''
   const hrs = hours ? `${hours} Hours` : ''
   const time = `I have ${hrs} ${mins} to spare.`
