@@ -29,10 +29,21 @@ Write a script which uses GPT to suggest things to do.
 Take a look at the optional `minutes` and `hours` flags:
 ```bash
 Flags:
-  -h, --help                    Show help                                                                                                                     
-      --hours <number>          How many hours do I have to spare?                                                                                            
-      --minutes <number>        How many minutes do I have to spare?                                                                                          
-      --version                 Show version
+  --gpt4                                                                      
+  Use GPT-4 instead of GPT-3. This will cause additional costs. (Not          
+  recommended)                                                                
+                                                                              
+  -h, --help                                                                  
+  Show help                                                                   
+                                                                              
+  --hours <number>                                                            
+  How many hours do I have to spare?                                          
+                                                                              
+  --minutes <number>                                                          
+  How many minutes do I have to spare?                                        
+                                                                              
+  --version                                                                   
+  Show version
 ```
 
 ## Acknowledgement

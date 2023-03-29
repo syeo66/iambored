@@ -11,9 +11,10 @@ import { getConfig, OPENAI_API_KEY } from '../helpers/config'
 interface IAmBoredOptions {
   hours?: number
   minutes?: number
+  gpt4?: boolean
 }
 
-const iambored = async ({ minutes, hours }: IAmBoredOptions) => {
+const iambored = async ({ minutes, hours, gpt4 }: IAmBoredOptions) => {
   const config = getConfig()
 
   const openAiApiConfiguration = new OpenAiApiConfiguration({
@@ -76,8 +77,10 @@ const iambored = async ({ minutes, hours }: IAmBoredOptions) => {
   ]
 
   try {
+    const model = gpt4 ? 'gpt-4' : 'gpt-3.5-turbo'
+
     const { data } = await openAiApi.createChatCompletion({
-      model: 'gpt-3.5-turbo',
+      model,
       messages,
       temperature: 1.5,
       max_tokens: 250,
