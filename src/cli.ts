@@ -33,7 +33,7 @@ const args = cli({
     },
     model: {
       type: Model,
-      description: 'Which model to use?',
+      description: 'Which model to use? "gpt3", "gpt4" or "gemini"',
       default: 'gpt3',
       choices: possibleModels,
     },

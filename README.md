@@ -29,9 +29,8 @@ Write a script which uses GPT to suggest things to do.
 Take a look at the optional `minutes` and `hours` flags:
 ```bash
 Flags:
-  --gpt4                                                                      
-  Use GPT-4 instead of GPT-3. This will cause additional costs. (Not          
-  recommended)                                                                
+  --model <model>
+  Set the model to use. Possible values are 'gpt3', 'gpt4' or 'gemini'. Default is 'gpt3'.
                                                                               
   -h, --help                                                                  
   Show help                                                                   
