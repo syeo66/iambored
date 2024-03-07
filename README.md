@@ -9,12 +9,24 @@ A command line tool using ChatGPT to suggest things to do when you're bored.
    npm install -g @redochsenbein/iambored
    ```
 
-2. Get your API key from [OpenAI](https://platform.openai.com/account/api-keys). Make sure you add payment details, so API works.
+### OpenAI
+
+2. Get your API key from [OpenAI](https://platform.openai.com/account/api-keys).
 
 3. Set the key to configuration file at `~/.iambored`:
 
    ```ini
    OPENAI_API_KEY=<your_api_key>
+   ```
+
+### Gemini
+
+2. Get your API key from [Google AI Studio](https://aistudio.google.com/app/apikey). Unfortunately this does not seem to be available in Switzerland so I can't currently work on this. 
+
+3. Set the key to configuration file at `~/.iambored`:
+
+   ```ini
+   GOOGLE_AI_API_KEY=<your_api_key>
    ```
 
 ## Usage
