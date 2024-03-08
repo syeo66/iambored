@@ -5,7 +5,7 @@ import { cli } from 'cleye'
 import packageJSON from '../package.json' assert { type: 'json' }
 import iambored from './commands/iambored'
 
-const possibleModels = ['gpt3', 'gpt4', 'gemini'] as const
+const possibleModels = ['gpt3', 'gpt4', 'anthropic', 'gemini'] as const
 
 type Models = (typeof possibleModels)[number]
 
@@ -33,8 +33,9 @@ const args = cli({
     },
     model: {
       type: Model,
-      description: 'Which model to use? "gpt3", "gpt4" or "gemini"',
-      default: 'gpt3',
+      description:
+        'Which model to use? "gpt3", "gpt4", "anthropic" or "gemini"',
+      default: 'anthropic',
       choices: possibleModels,
     },
   },

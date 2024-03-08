@@ -1,3 +1,4 @@
+import anthropic from './anthropic'
 import gpt from './gpt'
 
 interface IAmBoredOptions {
@@ -9,6 +10,11 @@ interface IAmBoredOptions {
 const iambored = async (options: IAmBoredOptions) => {
   if (options.model === 'gpt3' || options.model === 'gpt4') {
     gpt(options)
+    return
+  }
+
+  if (options.model === 'anthropic') {
+    anthropic(options)
     return
   }
 
