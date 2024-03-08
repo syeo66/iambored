@@ -51,20 +51,12 @@ Write a script which uses GPT to suggest things to do.
 Take a look at the optional `minutes` and `hours` flags:
 ```bash
 Flags:
-  --model <model>
-  Set the model to use. Possible values are 'gpt3', 'gpt4', 'anthropic' or 'gemini'. Default is 'gpt3'.
-                                                                              
-  -h, --help                                                                  
-  Show help                                                                   
-                                                                              
-  --hours <number>                                                            
-  How many hours do I have to spare?                                          
-                                                                              
-  --minutes <number>                                                          
-  How many minutes do I have to spare?                                        
-                                                                              
-  --version                                                                   
-  Show version
+  -h, --help                    Show help                                                 
+      --hours <number>          How many hours do I have to spare?                        
+      --minutes <number>        How many minutes do I have to spare?                      
+      --model <value>           Which model to use? "gpt3", "gpt4", "anthropic" or        
+                                "gemini" (default: "anthropic")                           
+      --version                 Show version
 ```
 
 ## Acknowledgement
