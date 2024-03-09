@@ -9,7 +9,7 @@ export const ANTHROPIC_API_KEY = 'ANTHROPIC_API_KEY'
 
 const configPath = pathJoin(homedir(), '.iambored')
 
-const configSchema = z.object({
+export const configSchema = z.object({
   [OPENAI_API_KEY]: z.string().optional(),
   [ANTHROPIC_API_KEY]: z.string().optional(),
 })
