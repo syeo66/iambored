@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 
+import { IAmBoredOptions } from '../commands/iambored'
 import { Messages } from '../connector/types'
-import { IAmBoredOptions } from './types'
 
 function preparePrompt({ minutes, hours }: IAmBoredOptions): Messages {
   const activities = getActivities()

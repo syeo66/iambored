@@ -10,33 +10,8 @@ const antrophicFactory: ConnectorFactory = (config) => {
         apiKey: config[ANTHROPIC_API_KEY],
       })
 
-      const reducer = () => {
-        let prev: Anthropic.MessageCreateParams['messages'][number] | null =
-          null
-
-        return (
-          acc: Anthropic.MessageCreateParams['messages'],
-          msg: Messages[number]
-        ) => {
-          const message = {
-            role: msg.role === 'assistant' ? 'assistant' : 'user',
-            content: msg.content,
-          } satisfies Anthropic.MessageCreateParams['messages'][number]
-
-          if (prev?.role === message.role) {
-            acc[acc.length - 1].content += `\n${message.content}`
-            prev = acc[acc.length - 1]
-            return acc
-          }
-
-          prev = message
-
-          return [...acc, message]
-        }
-      }
-
       const messages = msgs.reduce<Anthropic.MessageCreateParams['messages']>(
-        reducer(),
+        messageReducer(),
         []
       )
 
@@ -56,6 +31,30 @@ const antrophicFactory: ConnectorFactory = (config) => {
         process.exit(1)
       }
     },
+  }
+}
+
+const messageReducer = () => {
+  let prev: Anthropic.MessageCreateParams['messages'][number] | null = null
+
+  return (
+    acc: Anthropic.MessageCreateParams['messages'],
+    msg: Messages[number]
+  ) => {
+    const message = {
+      role: msg.role === 'assistant' ? 'assistant' : 'user',
+      content: msg.content,
+    } satisfies Anthropic.MessageCreateParams['messages'][number]
+
+    if (prev?.role === message.role) {
+      acc[acc.length - 1].content += `\n${message.content}`
+      prev = acc[acc.length - 1]
+      return acc
+    }
+
+    prev = message
+
+    return [...acc, message]
   }
 }
 

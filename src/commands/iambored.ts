@@ -1,11 +1,14 @@
+import { z } from 'zod'
+
 import anthropic from './anthropic'
 import gpt from './gpt'
 
-interface IAmBoredOptions {
-  hours?: number
-  minutes?: number
-  model: string
-}
+export const iAmBoredOptionsSchema = z.object({
+  hours: z.number().optional(),
+  minutes: z.number().optional(),
+  model: z.string(),
+})
+export type IAmBoredOptions = z.infer<typeof iAmBoredOptionsSchema>
 
 const iambored = async (options: IAmBoredOptions) => {
   if (options.model === 'gpt3' || options.model === 'gpt4') {

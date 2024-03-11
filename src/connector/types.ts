@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
+import { iAmBoredOptionsSchema } from '../commands/iambored'
 import { configSchema } from '../helpers/config'
 
 export const messagesSchema = z.array(
@@ -15,7 +16,7 @@ const connectorResponseSchema = z.array(z.string())
 const connectorSchema = z.object({
   completion: z
     .function()
-    .args(messagesSchema)
+    .args(messagesSchema, iAmBoredOptionsSchema)
     .returns(connectorResponseSchema.or(z.promise(connectorResponseSchema))),
 })
 export type Connector = z.infer<typeof connectorSchema>

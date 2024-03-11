@@ -6,7 +6,10 @@ import { IAmBoredOptions } from '../helpers/types'
 const anthropic = async (options: IAmBoredOptions) => {
   const config = getConfig()
   const antrophicConnector = antrophicFactory(config)
-  const messages = await antrophicConnector.completion(preparePrompt(options))
+  const messages = await antrophicConnector.completion(
+    preparePrompt(options),
+    options
+  )
 
   for (const msg of messages) {
     console.log(msg)
