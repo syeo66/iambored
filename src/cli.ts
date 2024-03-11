@@ -2,7 +2,7 @@
 
 import { cli } from 'cleye'
 
-import packageJSON from '../package.json' assert { type: 'json' }
+import packageJSON from '../package.json' with { type: 'json' }
 import iambored from './commands/iambored'
 
 const possibleModels = ['gpt3', 'gpt4', 'anthropic', 'gemini'] as const
