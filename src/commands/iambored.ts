@@ -1,7 +1,9 @@
 import { z } from 'zod'
 
-import anthropic from './anthropic'
-import gpt from './gpt'
+import anthropicFactory from '../connector/anthropic'
+import openaiFactory from '../connector/openai'
+import { getConfig } from '../helpers/config'
+import preparePrompt from '../helpers/preparePrompt'
 
 export const iAmBoredOptionsSchema = z.object({
   hours: z.number().optional(),
@@ -10,18 +12,26 @@ export const iAmBoredOptionsSchema = z.object({
 })
 export type IAmBoredOptions = z.infer<typeof iAmBoredOptionsSchema>
 
+const factories = {
+  gpt3: openaiFactory,
+  gpt4: openaiFactory,
+  anthropic: anthropicFactory,
+}
+
 const iambored = async (options: IAmBoredOptions) => {
-  if (options.model === 'gpt3' || options.model === 'gpt4') {
-    gpt(options)
-    return
+  const config = getConfig()
+  const factory = factories[options.model as keyof typeof factories]
+
+  if (!factory) {
+    throw new Error(`Unknown model: ${options.model}`)
   }
 
-  if (options.model === 'anthropic') {
-    anthropic(options)
-    return
-  }
+  const connector = factory(config)
+  const messages = await connector.completion(preparePrompt(options), options)
 
-  console.log('Gemini Pro not implemented yet')
+  for (const msg of messages) {
+    console.log(msg)
+  }
 }
 
 export default iambored
