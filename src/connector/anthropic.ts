@@ -18,7 +18,7 @@ const antrophicFactory: ConnectorFactory = (config) => {
       const params: Anthropic.MessageCreateParams = {
         max_tokens: 250,
         messages,
-        model: 'claude-3-opus-20240229',
+        model: 'claude-3-sonnet-20240229',
       }
 
       try {

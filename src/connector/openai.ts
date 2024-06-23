@@ -21,7 +21,7 @@ const openaiFactory: ConnectorFactory = (config) => {
       )
 
       try {
-        const model = args.model === 'gpt4' ? 'gpt-4' : 'gpt-3.5-turbo'
+        const model = args.model === 'gpt4' ? 'gpt-4o' : 'gpt-3.5-turbo'
 
         const { data } = await openAiApi.createChatCompletion({
           model,
