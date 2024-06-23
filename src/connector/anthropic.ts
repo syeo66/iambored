@@ -18,14 +18,18 @@ const antrophicFactory: ConnectorFactory = (config) => {
       const params: Anthropic.MessageCreateParams = {
         max_tokens: 250,
         messages,
-        model: 'claude-3-sonnet-20240229',
+        model: 'claude-3-5-sonnet-20240620',
       }
 
       try {
         const message: Anthropic.Message =
           await anthropicApi.messages.create(params)
 
-        return message?.content?.map((msg) => msg.text) ?? null
+        return (
+          message?.content?.map((msg) =>
+            msg.type === 'text' ? msg.text : ''
+          ) ?? null
+        )
       } catch (error: unknown) {
         console.error(error)
         process.exit(1)
